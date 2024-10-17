@@ -21,7 +21,4 @@ The test-server code is in server.py
 
 The bash code is in run_clients.sh
 
-The testing/experiments data can be found in ANALYSIS.md, Testing_data.png and Boxplot.png
-
-The boxplots and line charts distributions can be found in Boxplot_and_line_chart.png and Boxplot.png
-
+The testing/experiments data can be found in ANALYSIS.md
