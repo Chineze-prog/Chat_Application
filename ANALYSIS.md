@@ -50,14 +50,12 @@ Boxplot Data - messages per minute
 
     7191       | 5770.5    | 5731.5    | 5700.5     | 3833       | 2925.5     | 1590.833    | 644
 
-An image of the excel display of the data can be found in "Testing_data.png" and"Boxplot.png" in my assignment folder and the boxplot and line chart of the data/distributions can be found in "Boxplot_and_line_chart.png" and "Boxplot.png". These images can be seen by moving the three png files to your local machine.
 
 Did running more clients affect the performance of your server?
 
 - Yes, running more clients slowed down the server
 
-Anecdotally, would you say the performance degrades linearly, quadradically, factorially? Why? What do you conclude?
-
 - In the beginning, 1 to 10 clients, the performance degrades linearly because the number of messages per minute decreases steadily but not drastically. But beyond the 20 clients mark, the performance degrades in a more quadratic manner since there are significant drops in the number of messages per minute.
+  
 - The server is not able to process alot of data comming from alot of clients at once so it results in loss of data.
 
