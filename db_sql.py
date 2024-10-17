@@ -1,5 +1,7 @@
 import sqlite3
 
+LOG_LIMIT = 100
+
 def initialize_db():
   connection = sqlite3.connect("ChatServerdb.db")
   cursor = connection.cursor()
@@ -79,8 +81,8 @@ def get_last_seen_msg_id(cursor, username):
 
 def get_last_100_msg_before_cutoff(cursor, last_seen_message_id):
     return cursor.execute("""SELECT timestamp, sender, message 
-                        FROM Messages WHERE id <= ? ORDER BY id DESC LIMIT 100
-                        """, (last_seen_message_id,)).fetchall()
+                        FROM Messages WHERE id <= ? ORDER BY id DESC LIMIT ?
+                        """, (last_seen_message_id, LOG_LIMIT)).fetchall()
 
 
 def get_msg_after_cutoff(cursor, last_seen_message_id):
@@ -90,7 +92,7 @@ def get_msg_after_cutoff(cursor, last_seen_message_id):
 
 def get_last_100_msg(cursor):
   return cursor.execute("""SELECT timestamp, sender, message FROM Messages
-                      ORDER BY id DESC LIMIT 100""").fetchall()
+                      ORDER BY id DESC LIMIT ?""", (LOG_LIMIT,)).fetchall()
 
 
 def latest_msg_id(cursor):
